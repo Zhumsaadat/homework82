@@ -8,7 +8,7 @@ tracksRouter.get('/', async (req, res, next) => {
   try {
     let tracks;
     if(req.query.album) {
-      tracks = await Tracks.find({ track: req.query.artist }).populate("album", "_id name");
+      tracks = await Tracks.find({ track: req.query.album }).populate("album", "_id name");
     } else {
       tracks = await Tracks.find();
     }
