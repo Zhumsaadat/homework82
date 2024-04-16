@@ -14,7 +14,6 @@ albumsRouter.get('/', async (req, res, next) => {
       albums = await Albums.find().populate("singer", "_id name");
     }
 
-    console.log(albums)
     res.send(albums);
   } catch (e) {
     next(e);

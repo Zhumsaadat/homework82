@@ -19,7 +19,7 @@ const AlbumsSchema = new Schema ({
     required: true,
     validate: {
       validator: async (value: Types.ObjectId) => Artists.findById(value),
-      message: 'Category does not exist!',
+      message: 'Artist does not exist!',
     }
   }
 });
