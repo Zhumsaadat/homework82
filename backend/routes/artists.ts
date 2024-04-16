@@ -1,11 +1,12 @@
 import express from 'express';
 import Artists from '../models/Artists';
+import { Artist } from '../types';
 
 const artistsRouter = express.Router();
 
 artistsRouter.get('/', async (req, res, next) => {
   try {
-    const artists = await Artists.find();
+    const artists: Artist[] = await Artists.find();
 
     res.send(artists);
   } catch (e) {
@@ -20,7 +21,7 @@ artistsRouter.post("/", async (req, res, next) => {
       return res.status(422).send({error: 'Field is required'})
     }
 
-    const artistsData = {
+    const artistsData: Artist = {
       name: req.body.name,
       image: req.body.image,
       info: req.body.info,
